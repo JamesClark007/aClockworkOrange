@@ -1,5 +1,4 @@
-DinoDash
-Dive into "Dino Dash," a thrilling 2D platformer! Guide a lovable dino through a vibrant prehistoric world, dodging obstacles and collecting treasures. Enjoy responsive controls and charming visuals.
+A Cloockwork Orange
 
 Getting Started
 To get started, simply download the game files and follow the installation instructions below.
@@ -22,9 +21,9 @@ http-server
 
 Open the index.html file in your preferred web browser.
 Controls
-Use the LEFT and RIGHT arrow keys to move the dino.
+Use the LEFT and RIGHT arrow keys to move the player.
 Press the UP arrow key to jump.
-Press R to restart the game after a Game Over.
+
 Contributing
 If you'd like to contribute to the project or report a bug, please open an issue or submit a pull request on the GitHub repository.
 
