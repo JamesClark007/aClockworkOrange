@@ -2,19 +2,25 @@
 // A Clockwork Orange
 
 
-  /*
-  Technically interesting aspect:
-  One technically interesting aspect of this game is the implementation of power-ups, such as the double jump and fire breath abilities. The game allows the Dino character to utilize these abilities when they have the corresponding power-up, which adds an extra layer of depth and fun to the gameplay. The implementation of power-ups goes beyond the basic endless runner mechanics, showcasing creativity and a willingness to explore new features.
+/*
+MAJOR PHASER COMPONENTS:
 
-  In addition, the game's physics, like gravity and velocity management for the Dino character, showcase a solid understanding of Phaser's physics system. The game also makes use of sound effects, such as jump sfx, which adds an immersive experience for the players.
+Physics Systems: I am using Phaser's Arcade physics system to manage player movement and gravity. This is implemented in the Player class where I enable the physics body for the player and set gravity.
 
-  Visual style:
-  The game features a visually appealing Dino character with different textures to indicate the active power-ups, like wings for the double jump ability and fire breath animation. These visual cues are not only aesthetically pleasing but also serve as a clear indicator to the player about their current abilities. This attention to detail demonstrates the developer's commitment to creating a polished and engaging game experience.
+Text Objects: I am using Phaser's text objects in my Menu scene to display the game title and instructions. This is done by calling this.add.text() and passing in the desired text and styling.
 
-  Furthermore, the game might incorporate a unique and visually stunning background, making the endless runner more enjoyable and visually appealing. The game could also feature a custom-designed soundtrack or sound effects that complement the visual style and create an immersive gaming experience.
+Tween Manager: I am using Phaser's tween manager to animate the player's jump. This is done in the jump() method of the Player class, where I create a tween that changes the player's y position over time to simulate a jump.
+  
+Cameras: I am using Phaser's camera system to create a "fog of war" effect, enhancing the stealth aspect of my game. Only the area around the player is visible, while the rest of the game world is obscured. This is implemented by creating a circular mask around the player and setting the camera to only display the area within the mask.
 
-  Overall, the game's technical aspects, such as power-ups and physics, and visual style, like the character design and textures, showcase the developer's creativity and willingness to experiment with the endless runner genre.
-  */
+Timers: I am using Phaser's timer system to create a sense of tension and urgency, which is crucial for a stealth game. I have a timer that counts down to when enemy patrols change their routes, adding an extra layer of challenge and unpredictability to the game. I've also implemented a timer that counts down to when the player is discovered if they stay in the enemies' line of sight for too long, further enhancing the stealth mechanics of the game.
+
+
+
+
+
+
+*/
 
 
 
