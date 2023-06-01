@@ -6,13 +6,27 @@ class Play extends Phaser.Scene {
     preload() {
         this.load.image('ground', 'assets/spooky_background.png');
         this.load.image('player', 'assets/player.png');
+        this.load.image('cop', './assets/cop.png');
+
+
+        this.load.image('light', './assets/light.png');
+
     }
 
     create() {
         const groundY = game.config.height - borderUISize - borderPadding;
         this.ground = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'ground').setOrigin(0, 0);
 
+
         this.player = new Player(this, game.config.width / 4, groundY + 30, 'player', groundY).setOrigin(0.5, 1);
+        // Add the cop to the scene
+
+
+        //testing code
+        //this.cop = new Cop(this, 0 , groundY - 200, 'cop', { start: 0 , end: game.config.width });
+
+        this.cop = new Cop(this, 0 , groundY - 200, 'cop', { start: game.config.width , end: 0 });
+
 
         // Set the camera to follow the player
         this.cameras.main.startFollow(this.player);
@@ -33,22 +47,20 @@ class Play extends Phaser.Scene {
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
 
-        // Enable lighting system
-        this.lights.enable();
-        this.lights.setAmbientColor(0x000000); // Set the ambient light to black
 
-        // Create a spotlight that will follow the player
-        this.spotlight = this.lights.addLight(this.player.x, this.player.y, 200); // Radius of 200 pixels
-        this.spotlight.setColor(0xffffff); // Set the light color to white
-        this.spotlight.setIntensity(1.0); // Set the intensity of the light
     }
 
     update() {
         this.player.update();
 
-        // Update the position of the spotlight to follow the player
-        this.spotlight.x = this.player.x;
-        this.spotlight.y = this.player.y;
+
+        this.cop.update(this.player);
+
+        // If cop is alerted, reset the level
+        if (this.cop.alerted) {
+            this.scene.restart();
+        }
+
     }
 
     // Function to change enemy patrol routes
