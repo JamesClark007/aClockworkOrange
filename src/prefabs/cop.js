@@ -22,7 +22,7 @@ class Cop extends Phaser.GameObjects.Container {
 
 
         
-        this.light = scene.add.image(-19, -44, 'light'); // relative position to the container
+        this.light = scene.add.image(-19, -46, 'light'); // relative position to the container
         this.light.setOrigin(0.55, 0.5);
         this.add(this.light); // add light to container
 
@@ -59,7 +59,7 @@ class Cop extends Phaser.GameObjects.Container {
         // If player is too close, alert!
         if (Phaser.Math.Distance.Between(this.x, this.y, player.x, player.y) < 100) {
             this.alerted = true;
-        }
+        }   
 
 
         if (this.x > this.previousX) {

@@ -1,4 +1,7 @@
-  class Menu extends Phaser.Scene {
+let highScore = 0; // Global variable to hold high score
+
+
+class Menu extends Phaser.Scene {
       constructor() {
         super("menuScene");
       }
@@ -9,6 +12,12 @@
         }
       
       create() {
+        
+        let highScoreText;
+        highScoreText = this.add.text(game.config.width / 2, game.config.height / 4, 'High Score: ' + highScore, { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#F3B141', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
+
+
+
 
         // will use this later for the menu screen
         this.add.image(0, 0, 'menuBackground').setOrigin(0, 0);
