@@ -6,17 +6,13 @@ class Menu extends Phaser.Scene {
         super("menuScene");
       }
 
-      preload() {
-        
-          this.load.image('menuBackground', './assets/spooky_background.png');
-        }
+  preload() {
+    this.load.image('menuBackground', './assets/spooky_background.png');
+  }
       
-      create() {
-        
-        let highScoreText;
-        highScoreText = this.add.text(game.config.width / 2, game.config.height / 4, 'High Score: ' + highScore, { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#F3B141', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
+  create() {
 
-
+    
 
 
         // will use this later for the menu screen
@@ -46,9 +42,20 @@ class Menu extends Phaser.Scene {
           keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
           keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
-      }
 
-      update() {
+        this.highScoreText = this.add.text(100, 75, 'Highscore: ',
+          { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#F3B141', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
+          
+
+      }
+      
+      updateHighScore() {
+        this.highScoreText.setText('High Score: ' + highScore);
+    }
+
+    update() {
+        this.updateHighScore();
+
           if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             // easy mode
             game.settings = {
