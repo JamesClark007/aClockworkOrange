@@ -6,8 +6,8 @@ class Player extends Phaser.GameObjects.Sprite {
         scene.physics.world.enableBody(this);
         this.body.setCollideWorldBounds(true);
         this.body.setGravityY(500);
-        this.body.setSize(this.width * 0.3, this.height * 0.3);
-        this.body.setSize(this.width*.5, this.height); 
+        
+        this.body.setSize(this.width*.5, this.height * .95); 
         this.moveSpeed = 4;
     }
 

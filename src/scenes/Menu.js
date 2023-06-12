@@ -1,5 +1,5 @@
 let highScore = 0; // Global variable to hold high score
-
+let copCountHigh = 0;
 
 class Menu extends Phaser.Scene {
       constructor() {
@@ -8,12 +8,10 @@ class Menu extends Phaser.Scene {
 
   preload() {
     this.load.image('menuBackground', './assets/spooky_background.png');
+    this.load.image('title', './assets/title.png');
   }
       
   create() {
-
-    
-
 
         // will use this later for the menu screen
         this.add.image(0, 0, 'menuBackground').setOrigin(0, 0);
@@ -22,7 +20,7 @@ class Menu extends Phaser.Scene {
           let menuConfig = {
               fontFamily: 'Arial',
               fontSize: '32px',
-              backgroundColor: '#F3B141',
+              backgroundColor: '#000000',
               color: '#FFFFFF',
               align: 'center',
               padding: {
@@ -32,11 +30,9 @@ class Menu extends Phaser.Scene {
               fixedWidth: 0
           }
 
-        this.add.text(game.config.width/2, game.config.height/2 - borderUISize
-        - borderPadding, 'A Clockwork Orange', menuConfig).setOrigin(0.5);
-
+       
         menuConfig.fontSize = '28px';
-        this.add.text(game.config.width / 2, game.config.height / 2, 'Use <- -> and UP arrows to move', menuConfig).setOrigin(0.5);
+        this.add.text(game.config.width / 2, game.config.height / 2 - 200, 'Use <- -> and UP arrows to move', menuConfig).setOrigin(0.5);
           
         // define keys
           keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -44,17 +40,33 @@ class Menu extends Phaser.Scene {
 
 
         this.highScoreText = this.add.text(100, 75, 'Highscore: ',
-          { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#F3B141', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
+          { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#000000', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
+
+          this.add.image(350, -100, 'title').setOrigin(0, 0); // fix this
+
+        this.copCountHighText = this.add.text(150, 300, 'Cop Count High: ' + copCountHigh,
+          { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#000000', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
+
+
+
           
 
       }
+
+      updateCopCountHigh() {
+        this.copCountHighText.setText('Cop Count High: ' + copCountHigh);
+    }
+
       
       updateHighScore() {
         this.highScoreText.setText('High Score: ' + highScore);
     }
 
     update() {
-        this.updateHighScore();
+      this.updateHighScore();
+      this.updateCopCountHigh();
+
+
 
           if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             // easy mode
@@ -79,5 +91,5 @@ class Menu extends Phaser.Scene {
         
 
 
-    }
+  }
     

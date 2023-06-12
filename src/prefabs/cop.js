@@ -65,17 +65,18 @@ class Cop extends Phaser.GameObjects.Container {
         if (this.x > this.previousX) {
             this.facingRight = false;
             this.light.x = 20;
-          } 
-        else if (this.x < this.previousX) {
+          } else if (this.x < this.previousX) {
             this.facingRight = true;
             this.light.x = -20;
-        }
+
+            // 
+          }
       
 
-        this.copSprite.setScale(this.facingRight ? 1 : -1, 1);
-        this.light.setScale(this.facingRight ? 1 : -1, 1);
+          this.copSprite.setScale(this.facingRight ? 1 : -1, 1);
+          this.light.setScale(this.facingRight ? 1 : -1, 1);
       
-        this.previousX = this.x; // Update the previous x position
+          this.previousX = this.x; // Update the previous x position
       
        
        
