@@ -1,5 +1,4 @@
 let highScore = 0; // Global variable to hold high score
-let copCountHigh = 0;
 
 class Menu extends Phaser.Scene {
       constructor() {
@@ -39,23 +38,17 @@ class Menu extends Phaser.Scene {
           keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
 
 
-        this.highScoreText = this.add.text(100, 75, 'Highscore: ',
+        this.highScoreText = this.add.text(150, 75, 'Highscore: ',
           { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#000000', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
 
           this.add.image(350, -100, 'title').setOrigin(0, 0); // fix this
 
-        this.copCountHighText = this.add.text(150, 300, 'Cop Count High: ' + copCountHigh,
-          { fontFamily: 'Arial', fontSize: '32px', backgroundColor: '#000000', color: '#FFFFFF', align: 'center'}).setOrigin(0.5);
-
-
+       
+          
 
           
 
       }
-
-      updateCopCountHigh() {
-        this.copCountHighText.setText('Cop Count High: ' + copCountHigh);
-    }
 
       
       updateHighScore() {
@@ -64,9 +57,6 @@ class Menu extends Phaser.Scene {
 
     update() {
       this.updateHighScore();
-      this.updateCopCountHigh();
-
-
 
           if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
             // easy mode

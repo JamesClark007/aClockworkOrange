@@ -15,9 +15,12 @@ class Player extends Phaser.GameObjects.Sprite {
         if (keyLEFT.isDown && this.x >= borderUISize + this.width - 100) {
             this.x -= this.moveSpeed + 5;
         }
+        
         if (keyRIGHT.isDown && this.x <= game.config.width - 200) { 
             this.x += this.moveSpeed + 5;
         }
+        
+
         if (Phaser.Input.Keyboard.JustDown(keyUP) && this.body.blocked.down) {
             this.jump();
         }

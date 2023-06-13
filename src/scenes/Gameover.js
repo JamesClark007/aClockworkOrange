@@ -26,26 +26,8 @@ class GameOver extends Phaser.Scene {
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     }
     update(){
-        if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
-            // easy mode
-            game.settings = {
-              //spaceshipSpeed: 3,
-              gameTimer: 60 // Change this value to set the game duration (e.g., 120000 for 2 minutes)
-            }
-            
-            
+        if (Phaser.Input.Keyboard.JustDown(keyLEFT) || Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
             this.scene.start('menuScene');    
         }
-        if (Phaser.Input.Keyboard.JustDown(keyRIGHT)) {
-            // easy mode
-            game.settings = {
-              //spaceshipSpeed: 3,
-              gameTimer: 60 // Change this value to set the game duration (e.g., 120000 for 2 minutes)
-            }
-            
-            
-            this.scene.start('menuScene');    
-        }
-          
     }
 }
